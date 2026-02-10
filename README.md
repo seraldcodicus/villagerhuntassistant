@@ -34,3 +34,11 @@
 ## How to Update the Extension
 
 Do the exact same thing above, just with the new zip file. See why you deleted the old one? So you don't get mixed up! 😉
+
+---
+
+## Credits & Disclaimer
+
+This extension is an unofficial community project, created to make tracking villagers a little bit easier.
+
+This is a companion tool for the EXCELLENT [ACNH Villager Hunt](https://www.risshella.com/villagerhunt) platform created by [Ront](https://twitch.tv/ront_tv). Special thanks to him for the support and for building such an awesome tool for the Animal Crossing community!
