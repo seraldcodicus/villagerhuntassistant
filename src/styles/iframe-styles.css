@@ -1,0 +1,76 @@
+.MuiBox-root {
+    padding: 0 !important;
+}
+
+.MuiBox-root thead {
+    display: none !important;
+}
+
+/* Logged Out UI Overlay */
+#vh-logged-out-ui {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    padding: 20px;
+    text-align: center;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+#vh-logged-out-ui.dark {
+    background: #18181b;
+    color: #efeff1;
+}
+
+#vh-logged-out-ui.light {
+    background: #ffffff;
+    color: #18181b;
+}
+
+.vh-logged-out-title {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+}
+
+.dark .vh-logged-out-title {
+    color: #fff;
+}
+
+.light .vh-logged-out-title {
+    color: #000;
+}
+
+.vh-logged-out-p {
+    margin: 0 0 20px 0;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.dark .vh-logged-out-p {
+    color: #adadb8;
+}
+
+.light .vh-logged-out-p {
+    color: #53535f;
+}
+
+#vh-login-btn-internal {
+    background: #9147ff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#vh-login-btn-internal:hover {
+    background: #772ce8;
+}

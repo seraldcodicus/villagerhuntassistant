@@ -1,0 +1,67 @@
+{
+    "manifest_version": 3,
+    "name": "Villager Hunt Assistant",
+    "version": "0.6.9",
+    "description": "Adds a risshella.com/villagerhunt widget to Twitch mod view, for mods to easily manage villagers during a hunt without needing to switch tabs.",
+    "author": "sery",
+    "permissions": [
+        "storage"
+    ],
+    "host_permissions": [
+        "https://www.twitch.tv/*",
+        "https://www.risshella.com/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.twitch.tv/moderator/*"
+            ],
+            "js": [
+                "src/modules/widget-storage.js",
+                "src/modules/widget-ui.js",
+                "src/modules/widget-events.js",
+                "src/modules/widget-toggle.js",
+                "src/content.js"
+            ],
+            "css": [
+                "src/styles/styles.css",
+                "src/styles/content-styles.css"
+            ],
+            "run_at": "document_idle"
+        },
+        {
+            "matches": [
+                "https://www.risshella.com/villagerhunt/*"
+            ],
+            "js": [
+                "src/injected/iframe-injected.js"
+            ],
+            "all_frames": true,
+            "run_at": "document_start"
+        }
+    ],
+    "icons": {
+        "16": "src/assets/island.png",
+        "48": "src/assets/island.png",
+        "128": "src/assets/island.png"
+    },
+    "action": {
+        "default_icon": {
+            "16": "src/assets/island.png",
+            "48": "src/assets/island.png",
+            "128": "src/assets/island.png"
+        }
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "src/assets/island.png",
+                "src/styles/iframe-styles.css"
+            ],
+            "matches": [
+                "https://*.risshella.com/*",
+                "https://www.twitch.tv/*"
+            ]
+        }
+    ]
+}

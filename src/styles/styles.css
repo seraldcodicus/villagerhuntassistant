@@ -1,0 +1,16 @@
+#mod-assistant-container * {
+    box-sizing: border-box;
+}
+
+#mod-assistant-container {
+    font-family: 'Roobert', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+#mod-assistant-container,
+#mod-assistant-toggle {
+    transition: opacity 0.2s ease;
+}
+
+#mod-assistant-container.dragging {
+    user-select: none;
+}
