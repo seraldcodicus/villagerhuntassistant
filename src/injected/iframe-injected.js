@@ -1,6 +1,6 @@
 // Only run if we are actually inside an iframe
 if (window !== window.top) {
-    console.log('Villager Hunt: Injected and active inside iframe.');
+    console.log('Villager Hunt Assistant: Injected and active inside iframe.');
     
     // 1. Inject the compact styles
     const style = document.createElement('link');
@@ -69,15 +69,19 @@ if (window !== window.top) {
 
         // 💎 Check if there's an active hunt to show the widget (independent of login status)
         const pageText = document.body.innerText || "";
-        const hasActiveHunt = !pageText.includes("No active hunt") && !pageText.includes("Creator not found.");
-        
-        if (hasActiveHunt) {
-            console.log('Villager Hunt Assistant: Active hunt detected. Showing widget.');
+        const noActiveHunt = pageText.includes("No active hunt");
+        const creatorNotFound = pageText.includes("Creator not found.");
+
+        if (noActiveHunt) {
+            console.log('Villager Hunt Assistant: No active hunt found.');
+            window.parent.postMessage({ type: 'VH_BUTTON_INACTIVE' }, 'https://www.twitch.tv');
+        } else if (creatorNotFound) {
+            console.log('Villager Hunt Assistant: Creator not found.');
+            window.parent.postMessage({ type: 'VH_BUTTON_INACTIVE' }, 'https://www.twitch.tv');
+        } else {
+            console.log('Villager Hunt Assistant: Active hunt detected. Triggering widget.');
             window.parent.postMessage({ type: 'VH_SHOW_WIDGET' }, 'https://www.twitch.tv');
             window.parent.postMessage({ type: 'VH_BUTTON_ACTIVE' }, 'https://www.twitch.tv');
-        } else {
-            // No active hunt - gray out the button
-            window.parent.postMessage({ type: 'VH_BUTTON_INACTIVE' }, 'https://www.twitch.tv');
         }
     };
 

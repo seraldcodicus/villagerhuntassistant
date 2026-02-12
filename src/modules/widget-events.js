@@ -85,15 +85,17 @@ const WidgetEvents = {
 
     setupMessaging: function() {
         window.addEventListener('message', (event) => {
-            if (event.origin !== this.config.origin) return;
+            if (event.origin !== this.config.origin && event.origin !== window.location.origin) return;
             
-            if (event.data?.type === 'VH_SHOW_WIDGET') {
+            if (event.data?.type === 'VH_SHOW_WIDGET' && this.state.autoShowDisabled) {
+                console.log('Villager Hunt Assistant: Autoshow is disabled: Game is not ACNH');
+            } else if (event.data?.type === 'VH_SHOW_WIDGET') {
                 this.elements.container.style.display = 'flex';
                 // Trigger animation after display is set
                 requestAnimationFrame(() => {
                     this.elements.container.classList.add('vh-visible');
                 });
-            } else if (event.data?.type === 'VH_BUTTON_ACTIVE') {
+            } else if (event.data?.type === 'VH_BUTTON_ACTIVE' && !this.state.autoShowDisabled) {
                 const btn = document.getElementById('mod-assistant-toggle');
                 if (btn) {
                     btn.style.filter = 'none';
