@@ -20,12 +20,15 @@
 - Find the **Developer mode** toggle in the top-right corner
 - Turn it **ON**
 
-### 5. Install the Extension
+### 5. Delete Old Extension
+- If you have an old version of the extension installed, click the Remove button on the extension card to delete it.
+
+### 6. Install the Extension
 - Locate **VillagerHunt.zip** in your Downloads folder (or wherever you saved it)
 - **Drag and drop** the zip file into the Extensions window
 - Chrome will automatically extract and install it
 
-### 6. You're Done!
+### 7. You're Done!
 - Navigate to any Twitch channel's **Mod View** (e.g., `twitch.tv/moderator/risshella`)
 - Look for the **island icon** 🏝️ in the top toolbar
 - If there's an active hunt, the widget will appear automatically!
