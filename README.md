@@ -3,7 +3,7 @@
 ## Quick Install (6 steps)
 
 ### 1. Download the Extension
-- Download **VillagerHunt.zip** from: https://sery.codes/villagerhuntassistant/villagerhunt.test.zip
+- Download **VillagerHunt.zip** from: https://sery.codes/villagerhuntassistant/VillagerHunt.zip
 - Save it to your **Downloads** folder (or wherever you prefer, you can delete it after installation)
 
 > **📌 Note:** Do NOT unzip the file! Chrome will handle this automatically.
