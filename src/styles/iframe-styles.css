@@ -74,3 +74,20 @@
 #vh-login-btn-internal:hover {
     background: #772ce8;
 }
+
+#vh-grant-access-btn {
+    background: transparent;
+    color: #9147ff;
+    border: 2px solid #9147ff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    margin-top: 10px;
+}
+
+#vh-grant-access-btn:hover {
+    background: #9147ff;
+    color: #fff;
+}

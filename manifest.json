@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Villager Hunt Assistant",
-    "version": "0.6.90",
+    "version": "0.6.969",
     "description": "A companion widget for risshella.com/villagerhunt. Integrates directly into Twitch mod view to help manage villagers during a hunt.",
     "author": "Sery",
     "permissions": [
