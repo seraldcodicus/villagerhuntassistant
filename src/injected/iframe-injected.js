@@ -2,6 +2,27 @@
 if (window !== window.top) {
     console.log('Villager Hunt Assistant: Injected and active inside iframe.');
 
+    // 0. Preserve ?modembed=true across client-side navigations (Next.js SPA)
+    let lastHref = location.href;
+    const enforceModEmbed = () => {
+        const url = new URL(location.href);
+        if (url.pathname.startsWith('/villagerhunt') && !url.searchParams.has('modembed')) {
+            url.searchParams.set('modembed', 'true');
+            console.log('Villager Hunt Assistant: Navigation lost ?modembed=true. Reloading.');
+            location.replace(url.toString());
+            return;
+        }
+        lastHref = location.href;
+    };
+
+    // Catch popstate (back/forward)
+    window.addEventListener('popstate', enforceModEmbed);
+
+    // Poll for pushState/replaceState navigations (no event fires for these)
+    setInterval(() => {
+        if (location.href !== lastHref) enforceModEmbed();
+    }, 200);
+
     // 1. Inject the compact styles
     const style = document.createElement('link');
     style.rel = 'stylesheet';
