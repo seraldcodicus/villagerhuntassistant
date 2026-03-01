@@ -3,15 +3,24 @@ if (window !== window.top) {
     console.log('Villager Hunt Assistant: Injected and active inside iframe.');
 
     // 0. Preserve ?modembed=true across client-side navigations (Next.js SPA)
+    // Track the path we last reloaded for to avoid infinite loops — if Next.js
+    // strips the param again on hydration, we don't retry the same path.
+    const RELOAD_KEY = 'vh_modembed_reloaded';
     let lastHref = location.href;
+
     const enforceModEmbed = () => {
         const url = new URL(location.href);
         if (url.pathname.startsWith('/villagerhunt') && !url.searchParams.has('modembed')) {
+            const lastReloaded = sessionStorage.getItem(RELOAD_KEY);
+            if (lastReloaded === url.pathname) return; // Already tried this path, stop
+            sessionStorage.setItem(RELOAD_KEY, url.pathname);
             url.searchParams.set('modembed', 'true');
             console.log('Villager Hunt Assistant: Navigation lost ?modembed=true. Reloading.');
             location.replace(url.toString());
             return;
         }
+        // Successful load with modembed — clear the retry tracker
+        sessionStorage.removeItem(RELOAD_KEY);
         lastHref = location.href;
     };
 
