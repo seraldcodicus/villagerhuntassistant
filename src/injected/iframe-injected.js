@@ -8,6 +8,11 @@ if (window !== window.top) {
     const RELOAD_KEY = 'vh_modembed_reloaded';
     let lastHref = location.href;
 
+    // Clear the retry tracker on fresh loads where modembed is present
+    if (new URL(location.href).searchParams.has('modembed')) {
+        sessionStorage.removeItem(RELOAD_KEY);
+    }
+
     const enforceModEmbed = () => {
         const url = new URL(location.href);
         if (url.pathname.startsWith('/villagerhunt') && !url.searchParams.has('modembed')) {
